@@ -2,6 +2,7 @@
 using MixERP.Net.ApplicationState.Cache;
 using MixERP.Net.Common.Extensions;
 using MixERP.Net.Framework.Contracts.Checklist;
+using MixERP.Net.i18n;
 using MixERP.Net.i18n.Resources;
 using PetaPoco;
 
@@ -26,13 +27,13 @@ namespace MixERP.Net.FirstSteps.FirstTasks
             if (count > 0 && supplierCount > 0)
             {
                 this.Status = true;
-                this.Message = string.Format(CultureInfo.DefaultThreadCurrentCulture, Labels.NPartiesFound, count);
+                this.Message = string.Format(CultureManager.GetCurrent(), Labels.NPartiesFound, count);
                 return;
             }
 
             if (count > 0)
             {
-                this.Message = "No supplier found.";
+                this.Message = Labels.NoSupplierFound;
                 return;
             }
 
